@@ -26,15 +26,11 @@
         dest: "{{ rendered_path }}"
         mode: "0600"
 
-    - name: Check if gzipped file already exists
-      ansible.builtin.stat:
-        path: "{{ gz_path }}"
-      register: gz_file_stat
 
     - name: Gzip the rendered content
       ansible.builtin.shell: |
         python3 gzipper.py "{{ rendered_path }}" "{{ gz_path }}"
-      when: not gz_file_stat.stat.exists
+      changed_when: true
 
     - name: Read gzip as base64
       ansible.builtin.slurp:

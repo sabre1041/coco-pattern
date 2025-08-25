@@ -29,7 +29,7 @@
 
     - name: Gzip the rendered content
       ansible.builtin.shell: |
-        python3 gzipper.py "{{ rendered_path }}" "{{ gz_path }}"
+        gzip -c "{{ rendered_path }}" > "{{ gz_path }}"
       changed_when: true
 
     - name: Read gzip as base64

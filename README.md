@@ -47,7 +47,6 @@ The pattern has been tested on Azure for two installation methods:
 
 [Additional configuration](https://issues.redhat.com/browse/KATA-4107) is required to pull secrets from authenticated registries.
 
-
 ### `2.*`
 
 Version `2.*` of the pattern is currently constrained to support:

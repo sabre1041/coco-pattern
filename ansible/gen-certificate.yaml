@@ -45,6 +45,7 @@
       ansible.builtin.copy:
         content: "{{ existing_cert_data }}"
         dest: "{{ temp_cert_file.path }}"
+        mode: "0600"
       when: existing_secret.resources | length > 0
 
     - name: Get certificate expiry date
@@ -61,7 +62,7 @@
     - name: Set fact to generate new certificate if expiring soon
       ansible.builtin.set_fact:
         need_new_cert: true
-      when: 
+      when:
         - existing_secret.resources | length > 0
         - days_until_expiry | int <= renewal_threshold_days
 
@@ -74,7 +75,7 @@
     - name: Display certificate status
       ansible.builtin.debug:
         msg: >
-          Certificate status: 
+          Certificate status:
           {% if existing_secret.resources | length == 0 %}
           No existing certificate found. Will generate new certificate.
           {% elif need_new_cert %}

@@ -7,7 +7,6 @@
   vars:
     kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
     hub_domain: "{{ global.hubClusterDomain | default('none')  | lower}}"
-    namespace: trustee-operator-system
     secret_name: kbs-tls-self-signed
     common_name: "kbs-trustee-operator-system.{{ hub_domain }}"
     days_valid: 365
@@ -137,4 +136,3 @@
         path: "{{ tmpdir.path }}"
         state: absent
       when: need_new_cert and tmpdir is defined
-

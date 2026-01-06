@@ -110,11 +110,19 @@ clusterGroup:
       repoURL: https://github.com/butler54/trustee-chart.git
       targetRevision: merge-certs
       path: ./
-      extraValueFiles:
-        - '$patternref/overrides/values-trustee.yaml'
-      # chart: trustee
-      # chartVersion: 0.1.*
-      # Use the override file to specify the list of secrets accessible to trustee from the ESO backend (today by default, Vault).
+      # Note: extraValueFiles with $patternref don't work for external repoURL (single-source app)
+      # Using overrides instead to pass values directly
+      overrides:
+        - name: global.coco.secured
+          value: "true"
+        - name: kbs.secretResources[0].name
+          value: kbsres1
+        - name: kbs.secretResources[0].key
+          value: secret/data/hub/kbsres1
+        - name: kbs.secretResources[1].name
+          value: passphrase
+        - name: kbs.secretResources[1].key
+          value: secret/data/hub/passphrase
 
     # sandbox:
     #   name: sandbox

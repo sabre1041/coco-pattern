@@ -92,6 +92,9 @@ curl -L https://security.access.redhat.com/data/63405576.txt -o cosign-pub-key.p
 # Ensure output directory exists
 mkdir -p ~/.coco-pattern
 
+# Clean up any existing measurement files
+rm -f ~/.coco-pattern/measurements-raw.json ~/.coco-pattern/measurements.json
+
 # Download the measurements using podman cp (works on macOS with remote podman)
 podman pull --authfile $PULL_SECRET_PATH $IMAGE
 

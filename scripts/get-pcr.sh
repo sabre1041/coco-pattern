@@ -97,7 +97,11 @@ podman pull --authfile $PULL_SECRET_PATH $IMAGE
 
 cid=$(podman create --entrypoint /bin/true $IMAGE)
 echo "CID: ${cid}"
-podman cp $cid:/image/measurements.json ~/.coco-pattern/measurements.json
+podman cp $cid:/image/measurements.json ~/.coco-pattern/measurements-raw.json
 podman rm $cid
 
-echo "Measurements saved to ~/.coco-pattern/measurements.json"
+# Trim leading "0x" from all measurement values
+jq 'walk(if type == "string" and startswith("0x") then .[2:] else . end)' \
+    ~/.coco-pattern/measurements-raw.json > ~/.coco-pattern/measurements.json
+
+echo "Measurements saved to ~/.coco-pattern/measurements.json (0x prefixes removed)"

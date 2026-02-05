@@ -9,9 +9,7 @@ url = "https://kbs.{{ hub_domain }}"
 
 [token_configs.kbs]
 url = "https://kbs.{{ hub_domain }}"
-cert = """
-{{ trustee_cert }}
-"""
+cert = """{{ trustee_cert }}"""
 '''
 
 "cdh.toml"  = '''
@@ -21,9 +19,7 @@ credentials = []
 [kbc]
 name = "cc_kbc"
 url = "https://kbs.{{ hub_domain }}"
-kbs_cert = """ 
-{{ trustee_cert }}
-"""
+kbs_cert = """{{ trustee_cert }}"""
 
 
 [image]
@@ -32,6 +28,10 @@ image_security_policy_uri = 'kbs:///default/security-policy/{{ security_policy_f
 
 "policy.rego" = '''
 package agent_policy
+
+import future.keywords.in
+import future.keywords.if
+import future.keywords.every
 
 default AddARPNeighborsRequest := true
 default AddSwapRequest := true

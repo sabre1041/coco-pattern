@@ -67,7 +67,7 @@ default UpdateInterfaceRequest := true
 default UpdateRoutesRequest := true
 default WaitProcessRequest := true
 default ExecProcessRequest := false
-default SetPolicyRequest := false
+default SetPolicyRequest := true 
 default WriteStreamRequest := false
 
 ExecProcessRequest if {

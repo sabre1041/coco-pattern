@@ -54,7 +54,7 @@
     # This block runs a shell script that calculates a hash value (PCR8_HASH) derived from the contents of 'initdata.toml'.
     # The script performs the following steps:
     # 1. hash=$(sha256sum initdata.toml | cut -d' ' -f1): Computes the sha256 hash of 'initdata.toml' and assigns it to $hash.
-    # 2. initial_pcr=000000000000000000000000000000000000000000000000000000000000000: Initializes a string of zeros as the initial PCR value.
+    # 2. initial_pcr=0000000000000000000000000000000000000000000000000000000000000000: Initializes a string of zeros as the initial PCR value.
     # 3. PCR8_HASH=$(echo -n "$initial_pcr$hash" | xxd -r -p | sha256sum | cut -d' ' -f1): Concatenates initial_pcr and $hash, converts from hex to binary, computes its sha256 hash, and stores the result as PCR8_HASH.
     # 4. echo $PCR8_HASH: Outputs the PCR hash value.
     # The important part: The 'register: pcr8_hash' registers the **stdout of the command**, which is the value output by 'echo $PCR8_HASH', as 'pcr8_hash.stdout' in Ansible.
@@ -62,7 +62,7 @@
     - name: Register init data pcr into a var
       ansible.builtin.shell: |
         hash=$(sha256sum "{{ rendered_path }}" | cut -d' ' -f1)
-        initial_pcr=000000000000000000000000000000000000000000000000000000000000000
+        initial_pcr=0000000000000000000000000000000000000000000000000000000000000000
         PCR8_HASH=$(echo -n "$initial_pcr$hash" | xxd -r -p | sha256sum | cut -d' ' -f1) && echo $PCR8_HASH
       register: pcr8_hash
 

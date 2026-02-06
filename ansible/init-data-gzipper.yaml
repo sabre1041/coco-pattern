@@ -46,15 +46,11 @@
         mode: "0600"
 
 
-    - name: Gzip the rendered content
+    - name: Gzip and base64 encode the rendered content
       ansible.builtin.shell: |
-        gzip -c "{{ rendered_path }}" > "{{ gz_path }}"
-      changed_when: true
-
-    - name: Read gzip as base64
-      ansible.builtin.slurp:
-        path: "{{ gz_path }}"
-      register: gz_slurped
+        cat "{{ rendered_path }}" | gzip | base64 -w0
+      register: initdata_encoded
+      changed_when: false
 
     # This block runs a shell script that calculates a hash value (PCR8_HASH) derived from the contents of 'initdata.toml'.
     # The script performs the following steps:

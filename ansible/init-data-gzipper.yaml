@@ -37,7 +37,6 @@
     - name: Define temp file paths
       ansible.builtin.set_fact:
         rendered_path: "{{ tmpdir.path }}/rendered.toml"
-        gz_path: "{{ tmpdir.path }}/rendered.toml.gz"
 
     - name: Render template to temp file
       ansible.builtin.template:
@@ -79,5 +78,5 @@
             name: "initdata"
             namespace: "imperative"
           data:
-            INITDATA: "{{ gz_slurped.content }}"
+            INITDATA: "{{ initdata_encoded.stdout }}"
             PCR8_HASH: "{{ pcr8_hash.stdout }}"

@@ -1,4 +1,4 @@
-algorithm = "sha384"
+algorithm = "sha256"
 version = "0.1.0"
 
 [data]

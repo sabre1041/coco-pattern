@@ -122,11 +122,20 @@ clusterGroup:
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config
-      chart: sandboxed-policies
-      chartVersion: 0.0.4 # pin to ensure latest for now
-#      path: applications/pipeline
-#      repoURL: https://github.com/you/applications.git
-#      targetRevision: stable
+      repoURL: https://github.com/beraldoleal/sandboxed-policies-chart.git
+      targetRevision: coco-chart-issue
+      path: ./
+      overrides:
+        - name: global.coco.enableSSHDebug
+          value: "true"
+        - name: global.coco.azure.defaultVMFlavour
+          value: Standard_DC2as_v5
+        - name: global.coco.azure.VMFlavours
+          value: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5,Standard_DC16as_v5"
+        - name: global.coco.azure.tags
+          value: "key1=value1,key2=value2"
+        - name: global.coco.azure.rootVolumeSize
+          value: "20"
     # Letsencrypt is not required anymore for trustee.
     # It's only here if you need it for your needs.
     letsencrypt:

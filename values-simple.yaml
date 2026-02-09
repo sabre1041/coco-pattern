@@ -109,6 +109,15 @@ clusterGroup:
       repoURL: https://github.com/beraldoleal/sandboxed-containers-chart.git
       targetRevision: coco-chart-issue
       path: ./
+      overrides:
+        - name: global.coco.enableSSHDebug
+          value: "true"
+        - name: global.secretStore.backend
+          value: vault
+        - name: secretStore.name
+          value: vault-backend
+        - name: secretStore.kind
+          value: ClusterSecretStore
 
     sandbox-policies:
       name: sandbox-policies

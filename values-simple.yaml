@@ -79,8 +79,8 @@ clusterGroup:
       name: trustee
       namespace: trustee-operator-system #upstream config
       project: trustee
-      repoURL: https://github.com/butler54/trustee-chart.git
-      targetRevision: merge-certs
+      repoURL: https://github.com/beraldoleal/trustee-chart.git
+      targetRevision: coco-chart-issue
       path: ./
       # Note: extraValueFiles with $patternref don't work for external repoURL (single-source app)
       # Using overrides instead to pass values directly

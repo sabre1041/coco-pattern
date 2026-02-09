@@ -114,7 +114,7 @@ clusterGroup:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config
       chart: sandboxed-policies
-      chartVersion: 0.0.*
+      chartVersion: 0.0.4 # pin to ensure latest for now
 #      path: applications/pipeline
 #      repoURL: https://github.com/you/applications.git
 #      targetRevision: stable

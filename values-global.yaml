@@ -13,6 +13,10 @@ global:
   coco:
     securityPolicyFlavour: "insecure" # insecure, signed or reject is expected.
     secured: true # true or false. If true, the cluster will be secured. If false, the cluster will be insecure.
+    # Enable SSH key injection into podvm for debugging. Do not enable in production.
+    # Also requires: COCO_ENABLE_SSH_DEBUG=true ./scripts/gen-secrets.sh
+    # and uncommenting the sshKey block in values-secret.yaml.template.
+    enableSSHDebug: true
     azure:
       defaultVMFlavour: "Standard_DC2as_v5"
       VMFlavours: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5,Standard_DC16as_v5"

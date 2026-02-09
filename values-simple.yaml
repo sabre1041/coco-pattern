@@ -106,8 +106,8 @@ clusterGroup:
       name: sandbox
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
-      repoURL: https://github.com/butler54/sandboxed-containers-chart.git
-      targetRevision: remove-ssh
+      repoURL: https://github.com/beraldoleal/sandboxed-containers-chart.git
+      targetRevision: coco-chart-issue
       path: ./
 
     sandbox-policies:

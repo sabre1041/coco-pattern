@@ -79,8 +79,8 @@ clusterGroup:
       name: trustee
       namespace: trustee-operator-system #upstream config
       project: trustee
-      repoURL: https://github.com/beraldoleal/trustee-chart.git
-      targetRevision: coco-chart-issue
+      repoURL: https://github.com/butler54/trustee-chart.git
+      targetRevision: merge-certs
       path: ./
       # Note: extraValueFiles with $patternref don't work for external repoURL (single-source app)
       # Using overrides instead to pass values directly
@@ -106,8 +106,8 @@ clusterGroup:
       name: sandbox
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
-      repoURL: https://github.com/beraldoleal/sandboxed-containers-chart.git
-      targetRevision: coco-chart-issue
+      repoURL: https://github.com/butler54/sandboxed-containers-chart.git
+      targetRevision: remove-ssh
       path: ./
       overrides:
         - name: global.coco.enableSSHDebug
@@ -122,8 +122,8 @@ clusterGroup:
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config
-      repoURL: https://github.com/beraldoleal/sandboxed-policies-chart.git
-      targetRevision: coco-chart-issue
+      repoURL: https://github.com/butler54/sandboxed-policies-chart.git
+      targetRevision: rootvolume
       path: ./
       overrides:
         - name: global.coco.enableSSHDebug

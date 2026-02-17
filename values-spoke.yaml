@@ -17,7 +17,7 @@ clusterGroup:
       source: redhat-operators
       channel: stable
       installPlanApproval: Manual 
-      csv: sandboxed-containers-operator.v1.10.1
+      csv: sandboxed-containers-operator.v1.11.0
     cert-manager:
       name: openshift-cert-manager-operator
       namespace: cert-manager-operator
@@ -48,8 +48,18 @@ clusterGroup:
       name: sandbox
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
-      chart: sandboxed-containers
-      chartVersion: 0.0.*
+      repoURL: https://github.com/butler54/sandboxed-containers-chart.git
+      targetRevision: remove-ssh
+      path: ./
+      overrides:
+        # - name: global.coco.enableSSHDebug
+        #   value: "true"
+        - name: global.secretStore.backend
+          value: vault
+        - name: secretStore.name
+          value: vault-backend
+        - name: secretStore.kind
+          value: ClusterSecretStore
   
     hello-openshift:
       name: hello-openshift
@@ -64,12 +74,7 @@ clusterGroup:
       path: charts/coco-supported/kbs-access
 
   imperative:
-    # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
-    # The default schedule is every 10 minutes: imperative.schedule
-    # Total timeout of all jobs is 1h: imperative.activeDeadlineSeconds
-    # imagePullPolicy is set to always: imperative.imagePullPolicy
-    # For additional overrides that apply to the jobs, please refer to
-    # https://validatedpatterns.io/imperative-actions/#additional-job-customizations
+    image: ghcr.io/butler54/imperative-container:latest
     jobs:
     - name: install-deps
       playbook: ansible/install-deps.yaml

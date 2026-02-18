@@ -14,7 +14,6 @@ clusterGroup:
   - hello-openshift
   - cert-manager-operator
   - cert-manager
-  - letsencrypt
   - kbs-access
   - encrypted-storage
   subscriptions:
@@ -136,17 +135,6 @@ clusterGroup:
           value: "key1=value1,key2=value2"
         - name: global.coco.azure.rootVolumeSize
           value: "20"
-    # Letsencrypt is not required anymore for trustee.
-    # It's only here if you need it for your needs.
-    letsencrypt:
-      name: letsencrypt
-      namespace: letsencrypt
-      project: hub
-      path: charts/all/letsencrypt
-      # Default to 'safe' for ARO
-      overrides:
-      - name: letsencrypt.enabled
-        value: false
     hello-openshift:
       name: hello-openshift
       namespace: hello-openshift

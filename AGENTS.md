@@ -5,7 +5,7 @@ This file provides rules and context for any AI coding assistant working in this
 
 ## Critical Rules
 
-- **DO NOT** edit anything under `/common/`. It is a read-only git subtree from the upstream validated patterns framework.
+- **DO NOT** edit anything under `/common/`. It is a read-only Git subtree from the upstream validated patterns framework.
 - **DO NOT** commit secrets, credentials, or private keys. `values-secret.yaml.template` is a template only.
 - **DO NOT** use Kustomize. This project uses Helm exclusively.
 - **DO NOT** create charts with `apiVersion: v1`. Use `apiVersion: v2` (Helm 3+).
@@ -23,7 +23,7 @@ Use the **first** approach that fits your requirement:
 
 ## Project Structure
 
-```
+```text
 ├── ansible/                        # Ansible playbooks (imperative jobs)
 ├── charts/
 │   ├── all/
@@ -54,9 +54,9 @@ Use the **first** approach that fits your requirement:
 
 ## Companion Chart Repositories
 
-Several charts in this repo have companion repositories for independent versioning and reuse. Develop and test in this repo first (charts deploy via `path:`), then sync changes to the companion repo.
+Several charts in this repository have companion repositories for independent versioning and reuse. Develop and test in this repository first (charts deploy via `path:`), then sync changes to the companion repository.
 
-| Local Path | Companion Repo | Purpose |
+| Local Path | Companion Repository | Purpose |
 |---|---|---|
 | `charts/hub/trustee/` | `trustee-chart` | Trustee / KBS on hub |
 | `charts/hub/sandbox-policies/` | `sandboxed-policies-chart` | ACM policies hub → spoke |
@@ -132,7 +132,7 @@ All commands run via `./pattern.sh make <target>`:
 | `load-secrets` | Load secrets into the configured backend |
 | `uninstall` | Uninstall the pattern |
 
-See the README for secrets backend configuration, RHDP environment variables, and additional maintenance commands.
+See the readme for secrets backend configuration, RHDP environment variables, and additional maintenance commands.
 
 ## Validation and CI
 

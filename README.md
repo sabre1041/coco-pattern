@@ -47,8 +47,7 @@ All previous versions used pre-GA (Technology Preview) releases of Trustee:
 - Azure DNS hosting the cluster's DNS zone
 - Tools on your workstation: `podman`, `yq`, `jq`, `skopeo`
 - OpenShift pull secret saved at `~/pull-secret.json` (download from [console.redhat.com](https://console.redhat.com/openshift/downloads))
-- Fork the repo — ArgoCD reconciles cluster state against your fork, so changes must be pushed to your remote
-
+- Fork the repository — ArgoCD reconciles cluster state against your fork, so changes must be pushed to your remote
 
 ### Secrets and PCR setup
 
@@ -130,5 +129,3 @@ Deployment commands:
 - Multi-cluster: `bash rhdp/wrapper-multicluster.sh <azure-region>`
 
 The wrapper scripts handle cluster provisioning via `openshift-install`, secret generation, PCR retrieval, and pattern installation.
-
-

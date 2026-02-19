@@ -88,7 +88,7 @@ Navigate to: **System BIOS → Processor Settings → Software Guard Extensions 
 
 ## Configuration Summary (Order of Operations)
 
-```
+```text
 1. Disable Node Interleaving          → Save & Reboot
 2. Enable x2APIC Mode                 → Save & Reboot
 3. Disable CPU Physical Address Limit → Save & Reboot

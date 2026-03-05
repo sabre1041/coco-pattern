@@ -29,6 +29,18 @@ if ! command -v yq &> /dev/null; then
     exit 1
 fi
 
+if ! command -v skopeo &> /dev/null; then
+    echo "ERROR: skopeo is required but not installed"
+    echo "Please install skopeo: https://github.com/containers/skopeo/blob/main/install.md"
+    exit 1
+fi
+
+if ! command -v podman &> /dev/null; then
+    echo "ERROR: podman is required but not installed"
+    echo "Please install podman: https://podman.io/docs/installation"
+    exit 1
+fi
+
 # 3. Check values-global.yaml exists
 if [ ! -f "values-global.yaml" ]; then
     echo "ERROR: values-global.yaml not found in current directory"

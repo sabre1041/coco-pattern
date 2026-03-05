@@ -125,7 +125,7 @@ clusterGroup:
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config
-      chart: sandboxed-containers
+      chart: sandboxed-policies
       chartVersion: 0.1.*
       overrides:
         - name: global.coco.azure.tags

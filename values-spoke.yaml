@@ -48,12 +48,9 @@ clusterGroup:
       name: sandbox
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
-      repoURL: https://github.com/butler54/sandboxed-containers-chart.git
-      targetRevision: remove-ssh
-      path: ./
+      chart: sandboxed-containers
+      chartVersion: 0.1.*
       overrides:
-        # - name: global.coco.enableSSHDebug
-        #   value: "true"
         - name: global.secretStore.backend
           value: vault
         - name: secretStore.name

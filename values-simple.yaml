@@ -79,49 +79,12 @@ clusterGroup:
       project: trustee
       chart: trustee
       chartVersion: 0.2.*     
-    # trustee:
-    #   name: trustee
-    #   namespace: trustee-operator-system #upstream config
-    #   project: trustee
-    #   repoURL: https://github.com/butler54/trustee-chart.git
-    #   targetRevision: merge-certs
-    #   path: ./
-    #   # Note: extraValueFiles with $patternref don't work for external repoURL (single-source app)
-    #   # Using overrides instead to pass values directly
-    #   overrides:
-    #     - name: global.coco.secured
-    #       value: "true"
-    #     - name: kbs.secretResources[0].name
-    #       value: kbsres1
-    #     - name: kbs.secretResources[0].key
-    #       value: secret/data/hub/kbsres1
-    #     - name: kbs.secretResources[1].name
-    #       value: passphrase
-    #     - name: kbs.secretResources[1].key
-    #       value: secret/data/hub/passphrase
-
     sandbox:
       name: sandbox
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
       chart: sandboxed-containers
       chartVersion: 0.1.*
-    # sandbox:
-    #   name: sandbox
-    #   namespace: openshift-sandboxed-containers-operator #upstream config
-    #   project: sandbox
-    #   repoURL: https://github.com/butler54/sandboxed-containers-chart.git
-    #   targetRevision: remove-ssh
-    #   path: ./
-    #   overrides:
-    #     # - name: global.coco.enableSSHDebug
-    #     #   value: "true"
-    #     - name: global.secretStore.backend
-    #       value: vault
-    #     - name: secretStore.name
-    #       value: vault-backend
-    #     - name: secretStore.kind
-    #       value: ClusterSecretStore
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config
@@ -132,23 +95,6 @@ clusterGroup:
           value: "key1=value1,key2=value2"
         - name: global.coco.azure.rootVolumeSize
           value: "20"
-    # sandbox-policies:
-    #   name: sandbox-policies
-    #   namespace: openshift-sandboxed-containers-operator #upstream config
-    #   repoURL: https://github.com/butler54/sandboxed-policies-chart.git
-    #   targetRevision: rootvolume
-    #   path: ./
-    #   overrides:
-    #     # - name: global.coco.enableSSHDebug
-    #     #   value: "true"
-    #     - name: global.coco.azure.defaultVMFlavour
-    #       value: Standard_DC2as_v5
-    #     - name: global.coco.azure.VMFlavours
-    #       value: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5,Standard_DC16as_v5"
-    #     - name: global.coco.azure.tags
-    #       value: "key1=value1,key2=value2"
-    #     - name: global.coco.azure.rootVolumeSize
-    #       value: "20"
     hello-openshift:
       name: hello-openshift
       namespace: hello-openshift

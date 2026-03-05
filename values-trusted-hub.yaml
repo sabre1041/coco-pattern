@@ -71,14 +71,6 @@ clusterGroup:
       overrides:
         - name: global.coco.secured
           value: "true"
-        - name: kbs.secretResources[0].name
-          value: kbsres1
-        - name: kbs.secretResources[0].key
-          value: secret/data/hub/kbsres1
-        - name: kbs.secretResources[1].name
-          value: passphrase
-        - name: kbs.secretResources[1].key
-          value: secret/data/hub/passphrase
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config

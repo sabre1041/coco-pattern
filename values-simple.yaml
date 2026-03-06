@@ -84,7 +84,7 @@ clusterGroup:
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
       chart: sandboxed-containers
-      chartVersion: 0.1.*
+      chartVersion: 0.2.*
     sandbox-policies:
       name: sandbox-policies
       namespace: openshift-sandboxed-containers-operator #upstream config

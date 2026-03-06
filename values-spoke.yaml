@@ -49,7 +49,7 @@ clusterGroup:
       namespace: openshift-sandboxed-containers-operator #upstream config
       project: sandbox
       chart: sandboxed-containers
-      chartVersion: 0.1.*
+      chartVersion: 0.2.*
       overrides:
         - name: global.secretStore.backend
           value: vault
